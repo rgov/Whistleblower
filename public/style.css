@@ -1,0 +1,222 @@
+html {
+  background-color: rgb(137, 177, 27);
+  
+  /* I want the scrollbar, damnit. */
+  overflow-y: scroll;
+}
+
+body {
+  background-color: rgb(137, 177, 27);
+  
+  /* I don't want the user to have to scroll down to see a chunk of whitespace
+     at the bottom. Not sure if this is kosher.
+   */
+  padding: 0;
+  margin: 100px;
+  
+  /* Typography */
+  color: white;
+  font-family: "Verdana", sans-serif;
+}
+
+/*********/
+/* ENTRY */
+/*********/
+
+div.entry
+{
+  width: 100%;
+  border: 2px solid white;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+div.entry > table.details
+{
+  width: 100%;
+  font-size: 93%;
+  margin-bottom: 5px;
+  
+  /* By default, it should be hidden. */
+  display: none;
+}
+
+div.entry.expanded > table.details
+{
+  /* Inherit all else, just change the display type. */
+  display: table;
+}
+
+/******************/
+/* ENTRY TITLEBAR */
+/******************/
+
+div.entry > div.titlebar
+{
+  background-color: white;
+  color: rgb(137, 177, 27);
+  font-size: 93%;
+  
+  /* 20px for indenting the text. */
+  padding: 0 0 0 20px;
+  
+  /* Position children elements relative to this element. */
+  position: relative;
+}
+
+div.entry > div.titlebar > span.title
+{
+  /* Hack to center vertically... why is this so hard, CSS? */
+  position: relative;
+  bottom: 0px;
+  left: 2px;
+}
+
+div.entry.expanded > div.titlebar
+{
+  /* When the entry is expanded, we need to add a 2px padding to the bottom
+     so that it appears to have a bottom border.
+     
+     RZG - Disabled, but not sure why?
+   */
+  padding-bottom: 2px;
+}
+ 
+div.entry > div.titlebar > a.toggle
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  float: left;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  background: transparent url(sprite.png) no-repeat top left;
+}
+
+div.entry.expanded > div.titlebar > a.toggle
+{
+  background-position: bottom left;
+}
+ 
+div.entry > div.titlebar > a.toggle > span
+{
+  display: none;
+}
+
+div.entry > table.details > tbody > tr > td
+{
+  border: none; /* 1px solid red; */
+  padding: 5px 5px 0 0;
+  vertical-align: top;
+}
+
+div.entry > table.details > tbody > tr > td > a
+{
+  text-decoration: none;
+  color: white;
+}
+
+div.entry > table.details > tbody > tr > td > a:hover
+{
+  text-decoration: none;
+  color: rgb(137, 177, 27);
+  background: white;
+}
+
+div.entry > table.details > tbody > tr > td.longwrap
+{
+  word-break: break-all;
+}
+
+div.entry > table.details > tbody> tr > th
+{
+  width: 80px;
+  border: none; /* 1px solid red; */
+  text-align: right;
+  vertical-align: top;
+  
+  padding: 5px 5px 0 0;
+}
+
+div.entry > table.details > tbody> tr > th > span
+{
+  background: white;
+  color: rgb(137, 177, 27);
+}
+
+/**************/
+/* PAGINATION */
+/**************/
+
+.pagination
+{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.pagination ol
+{
+  
+}
+
+.pagination li
+{
+  list-style-type: none;
+  text-align: center;
+  
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin: 0 5px;
+  
+  
+  border: 2px solid white;
+}
+
+.selected
+{
+  background-color: white;
+  color: rgb(137, 177, 27);
+}
+
+.unselected
+{
+  background-color: rgb(137, 177, 27);
+  color: white;
+}
+
+/**********/
+/* HEADER */
+/**********/
+ 
+h1.title
+{
+  color: white;
+  font: 93% "Verdana", sans-serif;
+  margin-bottom: 40px;
+}
+ 
+h1.title > div.about
+{
+  display: inline-block;
+  
+  /* Hack to align the bottom of the about block with the bottom of the
+     image, so the highlight looks prettier.
+   */
+  position: relative;
+  bottom: 3px;
+}
+ 
+h1.title > div.about > a
+{
+  text-decoration: none;
+  color: white;
+}
+ 
+h1.title > div.about > a:hover
+{
+  color: rgb(137, 177, 27);
+  background-color: white;
+}

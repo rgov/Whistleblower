@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.0/build/cssreset/reset-min.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.0/build/cssbase/base-min.css">
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	 
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.toggle').click(function(e) {
+				$(this).parents('.entry').toggleClass('expanded').toggleClass('collapsed');
+				e.preventDefault();
+			});
+		});
+	</script>
+	
+	<title>Whistleblower</title>
+</head>
+<body>
+
+<h1 class="title"> 
+	<img src="logo.png" alt="Whistleblower" /> 
+	<div class="about">
+		by<br />
+		<a href="http://rgov.org/">Ryan Govostes</a>
+	</div> 
+</h1>
+
+<% @entries.each_with_index do |entry, i| %>
+<div class="entry <% if i == 0 %>expanded<% else %>collapsed<% end %>">
+	<div class="titlebar">
+		<a class="toggle" href="#"><span>collapse</span></a>
+		<span class="title">
+			from <%= entry.host %>
+			<% if !entry.referrer.empty? and entry.referrer != '/' %>via <%= URI.parse(entry.referrer).host %><% end %>
+			at <%= entry.timestamp.strftime("%Y-%m-%d %H:%M:%S") %>
+		</span>
+	</div>
+	<table class="details">
+		<tr>
+			<th><span>HOST</span></th>
+			<td colspan=3 class="longwrap"><%= entry.host %></td>
+		</tr>
+		<% if !entry.referrer.empty? and entry.referrer != '/' %>
+		<tr>
+			<th><span>REFERRER</span></th>
+			<td colspan=3 class="longwrap"><a href="<%= entry.referrer %>"><%= entry.referrer %></a></td>
+		</tr>
+		<% end %>
+		
+		<% if entry.form_data_pairs.empty? %>
+		<tr>
+			<th><span><%= entry.method %></span></th>
+			<td colspan=3><i>no form data</i></td>
+		</tr>
+		<% else %>
+		<% entry.form_data_pairs.each_with_index do |pair, j| %>
+		<tr>
+			<th><% if j == 0 %><%= entry.method %><% end%></th>
+			<td><%= pair.name %></td>
+			<td>=</td>
+			<td class="longwrap"><%= pair.value %></td>
+		</tr>
+		<% end %>
+		<% end %>
+	</table>
+</div>
+<% end %>
+
+<div class="pagination">
+	<ol>
+		<li class="selected">1
+		<li class="unselected">2
+		<li class="unselected">3
+	</ol>
+</div>
+
+</div>
+</body>
+</html>

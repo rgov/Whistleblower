@@ -20,19 +20,19 @@
 	<table class="details">
 		<tr>
 			<th><span>HOST</span></th>
-			<td colspan=3 class="longwrap"><%= entry.host %></td>
+			<td colspan="3" class="longwrap"><%= entry.host %></td>
 		</tr>
 		<% if !entry.referrer.empty? and entry.referrer != '/' %>
 		<tr>
 			<th><span>REFERRER</span></th>
-			<td colspan=3 class="longwrap"><a href="<%= entry.referrer %>"><%= entry.referrer %></a></td>
+			<td colspan="3" class="longwrap"><a href="<%= entry.referrer %>"><%= entry.referrer %></a></td>
 		</tr>
 		<% end %>
 		
 		<% if entry.form_data_pairs.empty? %>
 		<tr>
 			<th><span><%= entry.method %></span></th>
-			<td colspan=3><i>no form data</i></td>
+			<td colspan="3"><i>no form data</i></td>
 		</tr>
 		<% else %>
 		<% entry.form_data_pairs.each_with_index do |pair, j| %>
@@ -50,8 +50,8 @@
 
 <div class="pagination">
 	<ol>
-		<li class="selected">1
-		<li class="unselected">2
-		<li class="unselected">3
+		<li class="selected">1</li>
+		<li class="unselected">2</li>
+		<li class="unselected">3</li>
 	</ol>
 </div>

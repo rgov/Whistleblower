@@ -66,5 +66,11 @@ end
 
 
 get '/admin/payloads' do
+   @entries = [{
+      :title => 'Sample Payload',
+      :author => 'Anonymous J. Hacker',
+      :description => 'This is a sample payload.',
+      :shortname => 'sample'
+   }]
    erb :payloads
 end

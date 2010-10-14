@@ -27,27 +27,27 @@ body
 
 ol.navigation
 {
-   margin: 40px 0;
+  margin: 40px 0;
 }
 
 ol.navigation > li
 {
-   list-style-type: none;
-   text-align: center;
+  list-style-type: none;
+  text-align: center;
 
-   display: inline-block;
-   height: 18px;
-   margin: 0 10px 0 0;
+  display: inline-block;
+  height: 18px;
+  margin: 0 10px 0 0;
 
-   padding: 0 2px 2px 2px;
+  padding: 0 2px 2px 2px;
 
-   border: 2px solid white;
+  border: 2px solid white;
 }
 
 ol.navigation > li > a
 {
-   text-decoration: none;
-   color: white;
+  text-decoration: none;
+  color: white;
 }
 
 /*********/
@@ -134,7 +134,7 @@ div.entry > div.titlebar > a.toggle > span
 
 div.entry > table.details > tbody > tr > td
 {
-  border: none; /* 1px solid red; */
+  border: none;
   padding: 5px 5px 0 0;
   vertical-align: top;
 }
@@ -155,6 +155,15 @@ div.entry > table.details > tbody > tr > td > a:hover
 div.entry > table.details > tbody > tr > td.longwrap
 {
   word-break: break-all;
+}
+
+div.entry > table.details > tbody > tr > td > div.injection
+{
+  font-family: monospace;
+  font-size: 11pt;
+  
+  border: 2px dashed white;
+  padding: 2px;
 }
 
 div.entry > table.details > tbody> tr > th
@@ -179,8 +188,8 @@ div.entry > table.details > tbody> tr > th > span
 
 ol.pagination
 {
-   margin-top: 40px;
-   text-align: center;
+  margin-top: 40px;
+  text-align: center;
 }
 
 ol.pagination > li

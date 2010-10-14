@@ -1,11 +1,13 @@
-html {
+html
+{
   background-color: rgb(137, 177, 27);
   
   /* I want the scrollbar, damnit. */
   overflow-y: scroll;
 }
 
-body {
+body
+{
   background-color: rgb(137, 177, 27);
   
   /* I don't want the user to have to scroll down to see a chunk of whitespace
@@ -66,9 +68,7 @@ div.entry > div.titlebar
 
 div.entry > div.titlebar > span.title
 {
-  /* Hack to center vertically... why is this so hard, CSS? */
   position: relative;
-  bottom: 0px;
   left: 2px;
 }
 
@@ -148,18 +148,13 @@ div.entry > table.details > tbody> tr > th > span
 /* PAGINATION */
 /**************/
 
-.pagination
+ol.pagination
 {
-  margin-top: 40px;
-  text-align: center;
+   margin-top: 40px;
+   text-align: center;
 }
 
-.pagination ol
-{
-  
-}
-
-.pagination li
+ol.pagination > li
 {
   list-style-type: none;
   text-align: center;
@@ -169,17 +164,18 @@ div.entry > table.details > tbody> tr > th > span
   width: 18px;
   margin: 0 5px;
   
+  padding-bottom: 2px;
   
   border: 2px solid white;
 }
 
-.selected
+ol.pagination > li.selected
 {
   background-color: white;
   color: rgb(137, 177, 27);
 }
 
-.unselected
+ol.pagination > li.unselected
 {
   background-color: rgb(137, 177, 27);
   color: white;

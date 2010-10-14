@@ -53,8 +53,14 @@ get '/' do
   'No one here but us chickens.'
 end
 
+
 # For the administrator panel, display requests
 get '/admin' do
+   redirect '/admin/list'
+end
+
+
+get '/admin/list' do
   @entries = Access.all(:order => [ :timestamp.desc ])
-  erb :admin
+  erb :hitlist
 end

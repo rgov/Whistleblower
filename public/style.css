@@ -76,8 +76,6 @@ div.entry.expanded > div.titlebar
 {
   /* When the entry is expanded, we need to add a 2px padding to the bottom
      so that it appears to have a bottom border.
-     
-     RZG - Disabled, but not sure why?
    */
   padding-bottom: 2px;
 }
@@ -92,7 +90,7 @@ div.entry > div.titlebar > a.toggle
   width: 18px;
   height: 18px;
   overflow: hidden;
-  background: transparent url(sprite.png) no-repeat top left;
+  background: transparent url(/sprite.png) no-repeat top left;
 }
 
 div.entry.expanded > div.titlebar > a.toggle

@@ -1,12 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.toggle').click(function(e) {
-			$(this).parents('.entry').toggleClass('expanded').toggleClass('collapsed');
-			e.preventDefault();
-		});
-	});
-</script>
-
 <% @entries.each_with_index do |entry, i| %>
 <div class="entry <% if i == 0 %>expanded<% else %>collapsed<% end %>">
 	<div class="titlebar">
@@ -37,7 +28,7 @@
 		<% else %>
 		<% entry.form_data_pairs.each_with_index do |pair, j| %>
 		<tr>
-			<th><% if j == 0 %><%= entry.method %><% end%></th>
+			<th><span><% if j == 0 %><%= entry.method %><% end%></span></th>
 			<td><%= pair.name %></td>
 			<td>=</td>
 			<td class="longwrap"><%= pair.value %></td>

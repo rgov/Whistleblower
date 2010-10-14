@@ -54,7 +54,6 @@ get '/' do
 end
 
 
-# For the administrator panel, display requests
 get '/admin' do
    redirect '/admin/list'
 end
@@ -63,4 +62,9 @@ end
 get '/admin/list' do
   @entries = Access.all(:order => [ :timestamp.desc ])
   erb :hitlist
+end
+
+
+get '/admin/payloads' do
+   erb :payloads
 end

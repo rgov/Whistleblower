@@ -21,6 +21,35 @@ body
   font-family: "Verdana", sans-serif;
 }
 
+/**************/
+/* NAVIGATION */
+/**************/
+
+ol.navigation
+{
+   margin: 40px 0;
+}
+
+ol.navigation > li
+{
+   list-style-type: none;
+   text-align: center;
+
+   display: inline-block;
+   height: 18px;
+   margin: 0 10px 0 0;
+
+   padding: 0 2px 2px 2px;
+
+   border: 2px solid white;
+}
+
+ol.navigation > li > a
+{
+   text-decoration: none;
+   color: white;
+}
+
 /*********/
 /* ENTRY */
 /*********/

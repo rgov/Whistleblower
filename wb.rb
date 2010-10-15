@@ -5,6 +5,7 @@ require 'sinatra'
 require 'erb'
 require 'date'
 require 'uri'
+require 'pathname'
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, 'sqlite3:accesses.sqlite3')
@@ -30,6 +31,27 @@ class FormDataPair
 end
 
 DataMapper.auto_migrate!
+
+
+# Enumerate the available payloads in payloads/
+class Payload
+   attr_accessor :script, :shortname;
+   attr_accessor :title, :author, :description;
+end
+
+payloads = Hash.new
+Dir.glob('payloads/*.js') do |filename|
+   p = Payload.new
+   p.shortname = File.basename(filename, '.js')
+   p.script = File.open(filename, 'r').read
+   
+   # Parse the metadata from the file
+   p.title = (p.script.match(/Title:\s*(.*)\s*/) or ['',''])[1]
+   p.author = (p.script.match(/Author:\s*(.*)\s*/) or ['',''])[1]
+   p.description = (p.script.match(/Description:\s*(.*)\s*/) or ['',''])[1]
+   
+   payloads[p.shortname] = p
+end
 
 
 # Log requests made to /
@@ -66,11 +88,6 @@ end
 
 
 get '/admin/payloads' do
-   @entries = [{
-      :title => 'Sample Payload',
-      :author => 'Anonymous J. Hacker',
-      :description => 'This is a sample payload.',
-      :shortname => 'sample'
-   }]
+   @entries = payloads.values
    erb :payloads
 end

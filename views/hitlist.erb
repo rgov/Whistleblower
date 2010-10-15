@@ -11,27 +11,26 @@
 	<table class="details">
 		<tr>
 			<th><span>HOST</span></th>
-			<td colspan="3" class="longwrap"><%= entry.host %></td>
+			<td colspan="2" class="longwrap"><%= entry.host %></td>
 		</tr>
 		<% if !entry.referrer.empty? and entry.referrer != '/' %>
 		<tr>
 			<th><span>REFERRER</span></th>
-			<td colspan="3" class="longwrap"><a href="<%= entry.referrer %>"><%= entry.referrer %></a></td>
+			<td colspan="2" class="longwrap"><a href="<%= entry.referrer %>"><%= entry.referrer %></a></td>
 		</tr>
 		<% end %>
 		
 		<% if entry.form_data_pairs.empty? %>
 		<tr>
 			<th><span><%= entry.method %></span></th>
-			<td colspan="3"><i>no form data</i></td>
+			<td colspan="2"><i>no form data</i></td>
 		</tr>
 		<% else %>
 		<% entry.form_data_pairs.each_with_index do |pair, j| %>
 		<tr>
 			<th><span><% if j == 0 %><%= entry.method %><% end%></span></th>
-			<td><%= pair.name %></td>
-			<td>=</td>
-			<td class="longwrap"><%= pair.value %></td>
+			<td align="right"><%= pair.name %>&nbsp;=</td>
+			<td align="left" width="100%" class="longwrap"><%= pair.value %></td>
 		</tr>
 		<% end %>
 		<% end %>

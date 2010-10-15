@@ -55,26 +55,34 @@ end
 
 
 # Log requests made to /
-get '/' do
-  access = Access.new
-  access.host = @env['REMOTE_ADDR']
-  access.referrer = request.referer
-  access.timestamp = DateTime.now
-  
-  access.method = 'GET'
-  request.GET.each_pair do |key, value|
-    pair = FormDataPair.new
-    pair.name = key
-    pair.value = value
-    access.form_data_pairs << pair
-  end
-  
-  access.save
-  
-  status 404
-  'No one here but us chickens.'
+def log_request(request)
+   access = Access.new
+   access.host = request.ip
+   access.referrer = request.referer
+   access.timestamp = DateTime.now
+
+   access.method = request.request_method
+   
+   (request.get? ? request.GET : request.POST).each_pair do |key, value|
+      pair = FormDataPair.new
+      pair.name = key
+      pair.value = value
+      access.form_data_pairs << pair
+   end
+
+   access.save
+
+   status 404
+   'No one here but us chickens.'
 end
 
+get '/' do
+   log_request(request)
+end
+
+post '/' do
+   log_request(request)
+end
 
 # Serve payload files from /payloads
 get '/payloads/:name.js' do

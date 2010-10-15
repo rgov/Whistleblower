@@ -1,6 +1,6 @@
 html
 {
-  background-color: rgb(137, 177, 27);
+  background-color: rgb(127, 51, 39);
   
   /* I want the scrollbar, damnit. */
   overflow-y: scroll;
@@ -8,7 +8,7 @@ html
 
 body
 {
-  background-color: rgb(137, 177, 27);
+  background-color: rgb(127, 51, 39);
   
   /* I don't want the user to have to scroll down to see a chunk of whitespace
      at the bottom. Not sure if this is kosher.
@@ -85,7 +85,7 @@ div.entry.expanded > table.details
 div.entry > div.titlebar
 {
   background-color: white;
-  color: rgb(137, 177, 27);
+  color: rgb(127, 51, 39);
   font-size: 93%;
   
   /* 20px for indenting the text. */
@@ -148,7 +148,7 @@ div.entry > table.details > tbody > tr > td > a
 div.entry > table.details > tbody > tr > td > a:hover
 {
   text-decoration: none;
-  color: rgb(137, 177, 27);
+  color: rgb(127, 51, 39);
   background: white;
 }
 
@@ -179,7 +179,7 @@ div.entry > table.details > tbody> tr > th
 div.entry > table.details > tbody> tr > th > span
 {
   background: white;
-  color: rgb(137, 177, 27);
+  color: rgb(127, 51, 39);
 }
 
 /**************/
@@ -210,12 +210,12 @@ ol.pagination > li
 ol.pagination > li.selected
 {
   background-color: white;
-  color: rgb(137, 177, 27);
+  color: rgb(127, 51, 39);
 }
 
 ol.pagination > li.unselected
 {
-  background-color: rgb(137, 177, 27);
+  background-color: rgb(127, 51, 39);
   color: white;
 }
 
@@ -249,6 +249,6 @@ h1.title > div.about > a
  
 h1.title > div.about > a:hover
 {
-  color: rgb(137, 177, 27);
+  color: rgb(127, 51, 39);
   background-color: white;
 }

@@ -76,6 +76,17 @@ get '/' do
 end
 
 
+# Serve payload files from /payloads
+get '/payloads/:name.js' do
+   if payloads.has_key? params[:name]
+      payloads[params[:name]].script
+   else
+      status 404
+      'console.log(\'Whistleblower: Requested payload was not found.\');'
+   end 
+end
+
+
 get '/admin' do
    redirect '/admin/list'
 end

@@ -87,7 +87,7 @@ end
 # Serve payload files from /payloads
 get '/payloads/:name.js' do
    if payloads.has_key? params[:name]
-      payloads[params[:name]].script
+      payloads[params[:name]].script.gsub(/%%WB_URL%%/, "#{request.scheme}://#{request.host}:#{request.port}")
    else
       status 404
       'console.log(\'Whistleblower: Requested payload was not found.\');'

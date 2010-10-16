@@ -3,34 +3,34 @@
 	<div class="titlebar">
 		<a class="toggle" href="#"><span>collapse</span></a>
 		<span class="title">
-			from <%= entry.host %>
-			<% if !entry.referrer.empty? and entry.referrer != '/' %>via <%= URI.parse(entry.referrer).host %><% end %>
-			at <%= entry.timestamp.strftime("%Y-%m-%d %H:%M:%S") %>
+			from <%=h entry.host %>
+			<% if !entry.referrer.empty? and entry.referrer != '/' %>via <%=h URI.parse(entry.referrer).host %><% end %>
+			at <%=h entry.timestamp.strftime("%Y-%m-%d %H:%M:%S") %>
 		</span>
 	</div>
 	<table class="details">
 		<tr>
 			<th><span>HOST</span></th>
-			<td colspan="2" class="longwrap"><%= entry.host %></td>
+			<td colspan="2" class="longwrap"><%=h entry.host %></td>
 		</tr>
 		<% if !entry.referrer.empty? and entry.referrer != '/' %>
 		<tr>
 			<th><span>REFERRER</span></th>
-			<td colspan="2" class="longwrap"><a href="<%= entry.referrer %>"><%= entry.referrer %></a></td>
+			<td colspan="2" class="longwrap"><a href="<%=h entry.referrer %>"><%=h entry.referrer %></a></td>
 		</tr>
 		<% end %>
 		
 		<% if entry.form_data_pairs.empty? %>
 		<tr>
-			<th><span><%= entry.method %></span></th>
+			<th><span><%=h entry.method %></span></th>
 			<td colspan="2"><i>no form data</i></td>
 		</tr>
 		<% else %>
 		<% entry.form_data_pairs.each_with_index do |pair, j| %>
 		<tr>
-			<th><span><% if j == 0 %><%= entry.method %><% end%></span></th>
-			<td align="right"><%= pair.name %>&nbsp;=</td>
-			<td align="left" width="100%" class="longwrap"><%= pair.value %></td>
+			<th><span><% if j == 0 %><%=h entry.method %><% end%></span></th>
+			<td align="right"><%=h pair.name %>&nbsp;=</td>
+			<td align="left" width="100%" class="longwrap"><%=h pair.value %></td>
 		</tr>
 		<% end %>
 		<% end %>

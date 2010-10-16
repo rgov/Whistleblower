@@ -7,6 +7,8 @@ require 'date'
 require 'uri'
 require 'pathname'
 
+include ERB::Util
+
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, 'sqlite3:accesses.sqlite3')
 

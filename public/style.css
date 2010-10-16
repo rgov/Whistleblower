@@ -119,7 +119,7 @@ div.entry > div.titlebar > a.toggle
   width: 18px;
   height: 18px;
   overflow: hidden;
-  background: transparent url(/sprite.png) no-repeat top left;
+  background: transparent url(sprite.png) no-repeat top left;
 }
 
 div.entry.expanded > div.titlebar > a.toggle
